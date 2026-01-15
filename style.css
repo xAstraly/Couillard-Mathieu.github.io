@@ -176,6 +176,14 @@ h1, h2, h3, .logo {
     border: 6px solid white;
 }
 
+.profile-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadre l'image automatiquement pour remplir le cercle sans la déformer */
+    object-position: center; /* Centre le visage si besoin (tu peux mettre 'top' si c'est trop bas) */
+    display: block;
+}
+
 .texte h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;

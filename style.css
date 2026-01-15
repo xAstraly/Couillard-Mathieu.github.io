@@ -1,0 +1,955 @@
+/* ---------------------------------- */
+/* 0. Général & Réinitialisation      */
+/* ---------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #f5f5f5;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    padding-top: 0; /* On remet à 0 pour que la section accueil touche le haut */
+    color: #333;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* On s'assure que la première section prend bien toute la hauteur */
+#section-accueil {
+    min-height: 100vh;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------------------------- */
+/* Header Navigation                  */
+/* ---------------------------------- */
+
+.header-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 5%;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-100%); 
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease; /* Animation fluide */
+    pointer-events: none; /* Empêche de cliquer sur les liens quand il est caché */
+}
+
+/* Cette classe sera ajoutée par le JavaScript au scroll */
+.header-top.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+
+.header-top .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #333;
+    letter-spacing: 2px;
+}
+
+.header-top nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header-top nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.header-top nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00ced1;
+    transition: width 0.3s ease;
+}
+
+.header-top nav a:hover {
+    color: #00ced1;
+}
+
+.header-top nav a:hover::after {
+    width: 100%;
+}
+
+/* ---------------------------------- */
+/* Sections & Layout                  */
+/* ---------------------------------- */
+
+.section-block {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 5%;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ---------------------------------- */
+/* 1. Section Présentation            */
+/* ---------------------------------- */
+
+.presentation {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Garde ces propriétés dans ton fichier style.css */
+
+/* Remplace le bloc 1. Section Présentation par celui-ci */
+
+.presentation {
+    display: flex !important; /* Force le mode flex */
+    flex-direction: row;      /* Force l'alignement horizontal */
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: left;         /* Aligne le texte à gauche */
+}
+
+.texte {
+    flex: 1;
+    /* On retire l'order ici pour laisser le flux HTML naturel */
+}
+
+.profile-image-container {
+    flex-shrink: 0;
+    width: 400px;  /* Taille légèrement réduite pour assurer que ça rentre */
+    height: 400px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 12px rgba(0, 206, 209, 0.1), 0 20px 50px rgba(0, 0, 0, 0.15);
+    border: 6px solid white;
+}
+
+.texte h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #222;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.texte h2 {
+    font-size: 1.6rem;
+    color: #00ced1;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.texte .accroche {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.texte .description {
+    font-size: 1.05rem;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 14px 35px;
+    background: #00ced1;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 206, 209, 0.3);
+    font-size: 1.05rem;
+}
+
+.btn-primary:hover {
+    background: #008b8b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 206, 209, 0.4);
+}
+
+/* ---------------------------------- */
+/* 2. Section Infos (À propos)        */
+/* ---------------------------------- */
+
+.info-content {
+    width: 90%;
+    max-width: 1200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-block {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.info-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-item h3 {
+    font-size: 1.5rem;
+    border: solid 2px black;
+    border-radius: 0.5rem;
+    padding: 15px 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.info-item p {
+    flex: 1;
+    font-size: 1rem;
+    line-height: 1.8;
+    text-align: justify;
+    padding: 25px;
+    border-radius: 0.75rem;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.entreprise-text {
+    background: #e6e6fa;
+    border: 1px solid #c0c0d8;
+}
+
+.ecole-text {
+    background: #f0fff0;
+    border: 1px solid #d8c0c0;
+}
+
+/* ---------------------------------- */
+/* 3. Section Compétences (NOUVEAU)   */
+/* ---------------------------------- */
+
+.competences {
+    background-color: #f5f5f5;
+}
+
+.competences-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.competence-category {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.competence-category:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.competence-category.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.competence-category h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 600;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #00ced1 0%, #008b8b 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.skill-tag:hover {
+    transform: scale(1.05);
+}
+
+/* ---------------------------------- */
+/* 4. Section Expérience              */
+/* ---------------------------------- */
+
+.experience {
+    background-color: #f5f5f5;
+}
+
+.experience-list {
+    width: 85%;
+    max-width: 900px;
+    padding: 35px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.experience-item {
+    margin-bottom: 35px;
+    border-left: 4px solid #00ced1;
+    padding-left: 25px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.experience-item.secondary {
+    border-left-color: #999;
+    opacity: 0.85;
+}
+
+.experience-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.experience-item.secondary.visible {
+    opacity: 0.85;
+}
+
+.experience-item h3 {
+    margin: 0 0 8px 0;
+    font-size: 1.4rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.experience-item .period {
+    color: #00ced1;
+    font-style: italic;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.experience-item .tasks {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 1rem;
+}
+
+.experience-item .tasks li {
+    margin-bottom: 10px;
+    padding-left: 1.2em;
+    position: relative;
+    line-height: 1.6;
+}
+
+.experience-item .tasks li:before {
+    content: "▸";
+    color: #00ced1;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* ---------------------------------- */
+/* 5. Section Formation (NOUVEAU)     */
+/* ---------------------------------- */
+
+.formation {
+    background-color: #f5f5f5;
+}
+
+.formation-list {
+    width: 85%;
+    max-width: 900px;
+}
+
+.formation-item {
+    display: flex;
+    gap: 25px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.formation-item:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.formation-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.formation-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.formation-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    color: #222;
+    font-weight: 600;
+}
+
+.formation-content .period {
+    color: #00ced1;
+    font-style: italic;
+    margin-bottom: 12px;
+    display: block;
+    font-weight: 500;
+}
+
+.formation-content .sub-title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+}
+
+.formation-content .description {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.formation-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.mini-tag {
+    padding: 5px 12px;
+    background: #f0f0f0;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    color: #555;
+}
+
+/* ---------------------------------- */
+/* 6. Section Projets (AMÉLIORÉE)     */
+/* ---------------------------------- */
+
+.projets {
+    background-color: #f5f5f5;
+}
+
+.projets-container {
+    width: 85%;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.projet-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 5px solid #00ced1;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.projet-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.projet-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.projet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.projet-header h3 {
+    font-size: 1.4rem;
+    color: #222;
+    font-weight: 600;
+}
+
+.projet-date {
+    color: #00ced1;
+    font-style: italic;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.projet-description {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.projet-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #00ced1 0%, #008b8b 100%);
+    color: white;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.projet-points {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 10px;
+}
+
+.projet-points li {
+    padding-left: 1.5em;
+    margin-bottom: 8px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.projet-points li:before {
+    content: "✓";
+    color: #00ced1;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.projet-note {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f0f8ff;
+    border-left: 3px solid #00ced1;
+    border-radius: 8px;
+    font-style: italic;
+    color: #555;
+}
+
+/* ---------------------------------- */
+/* 7. Section LinkedIn Posts (NOUVEAU) */
+/* ---------------------------------- */
+
+.linkedin-posts {
+    background-color: #f5f5f5;
+}
+
+.posts-container {
+    width: 85%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.linkedin-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #0077b5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.linkedin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.linkedin-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.linkedin-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.linkedin-author h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.linkedin-author p {
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.linkedin-content {
+    line-height: 1.7;
+}
+
+.post-date {
+    color: #0077b5;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+    font-weight: 500;
+}
+
+.post-text {
+    color: #333;
+    margin-bottom: 20px;
+    white-space: pre-line;
+    font-size: 1rem;
+}
+
+.view-post-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #0077b5;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.view-post-btn:hover {
+    background: #005582;
+    transform: translateX(5px);
+}
+
+/* Si tu utilises l'embed natif LinkedIn */
+.linkedin-embed {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.linkedin-embed iframe {
+    border-radius: 8px;
+}
+
+/* ---------------------------------- */
+/* 8. Section Contact                 */
+/* ---------------------------------- */
+
+.contact {
+    background-color: #f5f5f5;
+}
+
+.contact-details {
+    text-align: center;
+    font-size: 1.1rem;
+    padding: 40px;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    max-width: 600px;
+}
+
+.contact-details.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-details a {
+    color: #00ced1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #008b8b;
+    text-decoration: underline;
+}
+
+.contact-details p {
+    margin: 15px 0;
+}
+
+.contact-cta {
+    margin-top: 30px;
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 14px 35px;
+    background: linear-gradient(135deg, #00ced1 0%, #008b8b 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 206, 209, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 206, 209, 0.4);
+}
+
+/* ---------------------------------- */
+/* 9. Bouton Scroll to Top            */
+/* ---------------------------------- */
+
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(0, 206, 209, 0.9);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    font-size: 1.5rem;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 998;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+}
+
+.scroll-top:hover {
+    transform: scale(1.1);
+    background: rgba(0, 139, 139, 1);
+}
+
+/* ---------------------------------- */
+/* 10. RESPONSIVE                     */
+/* ---------------------------------- */
+
+@media (max-width: 1024px) {
+    .presentation {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .texte {
+        order: 1;
+        text-align: center;
+    }
+
+    .profile-image-container {
+        width: 300px;
+        height: 300px;
+        order: 2;
+    }
+    
+    .info-block {
+        flex-direction: column;
+    }
+
+    .header-top nav {
+        gap: 20px;
+    }
+
+    .header-top nav a {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 160px;
+    }
+
+    .header-top {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .header-top .logo {
+        font-size: 1.5rem;
+    }
+
+    .header-top nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .header-top nav a {
+        font-size: 0.85rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .presentation {
+        text-align: center;
+    }
+
+    .texte h1 {
+        font-size: 2.2rem;
+    }
+
+    .texte h2 {
+        font-size: 1.3rem;
+    }
+
+    .texte .accroche,
+    .texte .description {
+        font-size: 1rem;
+    }
+
+    .info-block {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .info-item h3 {
+        font-size: 1.3rem;
+    }
+
+    .info-item p {
+        width: 100%;
+        text-align: left;
+    }
+
+    .profile-image-container {
+        width: 250px;
+        height: 250px;
+    }
+
+    .competences-container {
+        grid-template-columns: 1fr;
+    }
+
+    .formation-item {
+        flex-direction: column;
+    }
+
+    .formation-icon {
+        font-size: 2.5rem;
+    }
+
+    .scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .linkedin-card {
+        padding: 20px;
+    }
+
+    .linkedin-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .linkedin-icon {
+        width: 40px;
+        height: 40px;
+    }
+}

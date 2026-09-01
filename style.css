@@ -32,10 +32,10 @@ body {
     padding-top: 0; /* On remet à 0 pour que la section accueil touche le haut */
     color: var(--ink);
     line-height: 1.6;
-    background:
+    background-color: #f6f8fa;
+    background-image:
         radial-gradient(circle at 12% 8%, rgba(6, 182, 212, 0.08), transparent 40%),
-        radial-gradient(circle at 88% 0%, rgba(99, 102, 241, 0.06), transparent 35%),
-        var(--bg);
+        radial-gradient(circle at 88% 0%, rgba(99, 102, 241, 0.06), transparent 35%);
 }
 
 /* On s'assure que la première section prend bien toute la hauteur */

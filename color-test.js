@@ -19,11 +19,11 @@ document.head.appendChild(styleTag);
 const bodyStyle = dom.window.getComputedStyle(document.body);
 const backgroundColor = bodyStyle.backgroundColor;
 
-// 5. Comparaison (Hex #f5f5f5 = RGB 245, 245, 245)
-const expectedColor = "rgb(245, 245, 245)";
+// 5. Comparaison (Hex #f6f8fa = RGB 246, 248, 250)
+const expectedColor = "rgb(246, 248, 250)";
 
 console.log(`--- Analyse du style ---`);
-console.log(`Couleur attendue : ${expectedColor} (#f5f5f5)`);
+console.log(`Couleur attendue : ${expectedColor} (#f6f8fa)`);
 console.log(`Couleur trouvée  : ${backgroundColor}`);
 
 if (backgroundColor === expectedColor) {

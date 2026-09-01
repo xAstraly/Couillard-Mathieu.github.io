@@ -14,7 +14,10 @@
 
     <!-- Header Navigation -->
     <header class="header-top">
-        <div class="logo">MC</div>
+        <div class="logo-group">
+            <img src="images/profil.png" alt="Mathieu Couillard" class="logo-photo">
+            <div class="logo">MC</div>
+        </div>
         <nav>
             <a href="#section-accueil">Accueil</a>
             <a href="#section-info">À propos</a>
@@ -31,6 +34,7 @@
     <div class="presentation section-block" id="section-accueil">
     
     <div class="texte">
+        <span class="kicker">Sécurité & Supervision</span>
         <h1>COUILLARD MATHIEU</h1>
         <h2>Développeur en Alternance</h2>
         <p class="accroche">
@@ -45,7 +49,7 @@
     </div>
 
     <div class="profile-image-container">
-        <img src="images/profil.png" alt="Photo de profil Mathieu Couillard">
+        <img src="images/imgprofil1.jpg" alt="Photo de profil Mathieu Couillard">
     </div>
 
 </div>
@@ -80,44 +84,56 @@
             <div class="competence-category">
                 <h3>💻 Langages & Développement</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">HTML/CSS</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Java</span>
+                    <span class="skill-tag" data-tooltip="Langage de programmation pour rendre les pages web interactives et développer des applications côté client et serveur.">JavaScript</span>
+                    <span class="skill-tag" data-tooltip="Langages de structuration et de mise en forme des pages web.">HTML/CSS</span>
+                    <span class="skill-tag" data-tooltip="Langage de programmation polyvalent, utilisé pour l'automatisation, les scripts et le développement web.">Python</span>
+                    <span class="skill-tag" data-tooltip="Langage standard pour interroger et manipuler les données dans les bases de données relationnelles.">SQL</span>
+                    <span class="skill-tag" data-tooltip="Langage de programmation orienté objet utilisé pour les applications d'entreprise et mobiles.">Java</span>
                 </div>
             </div>
 
             <div class="competence-category">
                 <h3>🛠️ Outils & Technologies</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Git / GitHub</span>
-                    <span class="skill-tag">VS Code</span>
-                    <span class="skill-tag">Docker</span>
-                    <span class="skill-tag">Linux</span>
-                    <span class="skill-tag">API REST</span>
+                    <span class="skill-tag" data-tooltip="Système de gestion de versions et plateforme de collaboration pour suivre et partager le code.">Git / GitHub</span>
+                    <span class="skill-tag" data-tooltip="Éditeur de code léger et extensible, utilisé au quotidien pour développer.">VS Code</span>
+                    <span class="skill-tag" data-tooltip="Outil de conteneurisation qui isole et déploie une application avec toutes ses dépendances.">Docker</span>
+                    <span class="skill-tag" data-tooltip="Système d'exploitation open source utilisé pour les serveurs et l'administration système.">Linux</span>
+                    <span class="skill-tag" data-tooltip="Interface permettant à des applications de communiquer entre elles via le protocole HTTP.">API REST</span>
                 </div>
             </div>
 
             <div class="competence-category">
                 <h3>🔒 Systèmes de Sécurité</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Vidéosurveillance</span>
-                    <span class="skill-tag">Contrôle d'accès</span>
-                    <span class="skill-tag">Systèmes d'alarme</span>
-                    <span class="skill-tag">Détection incendie</span>
-                    <span class="skill-tag">Supervision centralisée</span>
+                    <span class="skill-tag" data-tooltip="Installation et paramétrage de caméras IP pour la surveillance et l'enregistrement vidéo.">Vidéosurveillance</span>
+                    <span class="skill-tag" data-tooltip="Gestion des droits d'entrée par badge ou biométrie sur les accès physiques d'un site.">Contrôle d'accès</span>
+                    <span class="skill-tag" data-tooltip="Configuration de centrales de détection d'intrusion et de gestion des alertes.">Systèmes d'alarme</span>
+                    <span class="skill-tag" data-tooltip="Paramétrage de centrales et capteurs de détection et d'alerte incendie.">Détection incendie</span>
+                    <span class="skill-tag" data-tooltip="Intégration de tous les équipements de sûreté dans un logiciel de pilotage unique.">Supervision centralisée</span>
+                </div>
+            </div>
+
+            <div class="competence-category">
+                <h3>🔌 Protocoles & Communication</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag" data-tooltip="Protocole de communication à base de registres, standard en automatisme et supervision industrielle.">Modbus</span>
+                    <span class="skill-tag" data-tooltip="Protocole standardisé pour la gestion technique des bâtiments (CVC, éclairage, contrôle d'accès).">BACnet</span>
+                    <span class="skill-tag" data-tooltip="Standard ouvert d'interopérabilité pour caméras IP et équipements de vidéosurveillance.">ONVIF</span>
+                    <span class="skill-tag" data-tooltip="Suite de protocoles réseau assurant l'adressage et le transport fiable des données.">TCP/IP</span>
+                    <span class="skill-tag" data-tooltip="Protocole de supervision et de gestion à distance des équipements réseau.">SNMP</span>
+                    <span class="skill-tag" data-tooltip="Protocole de contrôle du streaming vidéo/audio en temps réel depuis les caméras IP.">RTSP</span>
                 </div>
             </div>
 
             <div class="competence-category">
                 <h3>📋 Méthodologies</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Agile / Scrum</span>
-                    <span class="skill-tag">DevOps</span>
-                    <span class="skill-tag">UML</span>
-                    <span class="skill-tag">Tests unitaires</span>
-                    <span class="skill-tag">Documentation technique</span>
+                    <span class="skill-tag" data-tooltip="Méthode de gestion de projet itérative organisée en sprints courts et réguliers.">Agile / Scrum</span>
+                    <span class="skill-tag" data-tooltip="Pratiques reliant développement et exploitation pour livrer plus vite et plus sûrement.">DevOps</span>
+                    <span class="skill-tag" data-tooltip="Langage de modélisation graphique pour concevoir l'architecture d'une application.">UML</span>
+                    <span class="skill-tag" data-tooltip="Tests automatisés qui vérifient isolément le bon fonctionnement d'une fonction ou d'un module.">Tests unitaires</span>
+                    <span class="skill-tag" data-tooltip="Rédaction de documents décrivant le fonctionnement et l'usage d'une solution technique.">Documentation technique</span>
                 </div>
             </div>
 
@@ -279,24 +295,9 @@
                     <li><strong>Conduite d'engins agricoles</strong> - Maîtrise technique et sécurité</li>
                 </ul>
                 <p class="projet-note">
-                    💡 Ces compétences développent ma capacité à comprendre des systèmes complexes, 
+                    💡 Ces compétences développent ma capacité à comprendre des systèmes complexes,
                     identifier des problèmes et trouver des solutions efficaces.
                 </p>
-            </div>
-
-            <div class="projet-card">
-                <div class="projet-header">
-                    <h3>🤝 Engagement Associatif - Rotary Club</h3>
-                    <span class="projet-date">Décembre 2025</span>
-                </div>
-                <p class="projet-description">
-                    Intégration du Rotary Club de Granville, organisation internationale dédiée au service communautaire et au développement professionnel.
-                </p>
-                <ul class="projet-points">
-                    <li>Développement de mon réseau professionnel local</li>
-                    <li>Participation à des projets d'entraide communautaire</li>
-                    <li>Échanges avec des professionnels de divers secteurs</li>
-                </ul>
             </div>
 
         </div>
@@ -346,7 +347,7 @@
             <p>💼 <strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/mathieu-couillard-730a44326/" target="_blank">Mathieu Couillard</a></p>
             
             <div class="contact-cta">
-                <a href="#" class="btn-download" download>📄 Télécharger mon CV</a>
+                <a href="images/CVAlternance.pdf" class="btn-download" download="CVAlternance.pdf">📄 Télécharger mon CV</a>
             </div>
         </div>
     </div>
@@ -371,6 +372,24 @@
 
         document.querySelectorAll('.experience-item, .section-title, .contact-details, .formation-item, .projet-card, .competence-category').forEach(el => {
             observer.observe(el);
+        });
+
+        // Info-bulles de définition : tap pour afficher/masquer sur mobile
+        const tooltipTags = document.querySelectorAll('.skill-tag[data-tooltip]');
+
+        tooltipTags.forEach(tag => {
+            tag.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wasActive = tag.classList.contains('tooltip-active');
+                tooltipTags.forEach(t => t.classList.remove('tooltip-active'));
+                if (!wasActive) {
+                    tag.classList.add('tooltip-active');
+                }
+            });
+        });
+
+        document.addEventListener('click', () => {
+            tooltipTags.forEach(t => t.classList.remove('tooltip-active'));
         });
 
         // Bouton Scroll to Top
